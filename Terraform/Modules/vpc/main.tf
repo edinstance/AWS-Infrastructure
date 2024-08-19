@@ -9,6 +9,14 @@ resource "aws_vpc" "vpc" {
   }
 }
 
+# This creates a public route table
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = "${var.vpc_name}-public-rt"
+  }
+}
+
 # This creates public subnets with the CIDR blocks from the variables
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.vpc.id
@@ -19,6 +27,14 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name = "public-${count.index}"
+  }
+}
+
+# This creates a private route table
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = "${var.vpc_name}-private-rt"
   }
 }
 
