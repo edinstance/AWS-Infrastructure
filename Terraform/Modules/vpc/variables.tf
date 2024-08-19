@@ -1,5 +1,4 @@
 
-
 # Name of the VPC
 variable "vpc_name" {
   description = "The name of the VPC"
@@ -26,4 +25,11 @@ variable "private_subnet_cidrs" {
   description = "List of CIDR blocks for the private subnets"
   type        = list(string)
   default     = ["10.0.4.0/24"]
+}
+
+# Availability Zones
+variable "availability_zones" {
+  description = "List of Availability Zones to use"
+  type        = list(string)
+  default     = ["eu-west-2a"]
 }
