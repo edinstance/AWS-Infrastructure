@@ -1,0 +1,30 @@
+name: Terraform Lint
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./Terraform
+    # This sets the working directory to the Terraform directory
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # This fetches the repository's code and places it in the working directory of the workflow runner.
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v4.0.0
+      # This sets up the tflint cli
+
+      - name: Initialise TFLint
+        run: tflint --init
+        
+      # This initalises and installs all of the required tflint plugins
+
+      - name: Run TFLint
+        run: tflint --recursive
+      # This runs tflint in recursive mode to lint all the terraform files in the directory
