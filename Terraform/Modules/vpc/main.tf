@@ -1,5 +1,14 @@
 
+terraform {
+  required_version = ">= 1.9"
 
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 5.60.0"
+    }
+  }
+}
 
 # This creates a VPC with CIDR block
 resource "aws_vpc" "vpc" {

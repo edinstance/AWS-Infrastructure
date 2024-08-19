@@ -1,4 +1,7 @@
 
+terraform {
+  required_version = ">= 1.9"
+}
 
 module "vpc" {
   source               = "./Modules/vpc/"
