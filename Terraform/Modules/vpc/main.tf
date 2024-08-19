@@ -10,6 +10,9 @@ terraform {
   }
 }
 
+# TODO: Consider adding VPC Flow Logs (MEDIUM Security Risk)
+# https://avd.aquasec.com/misconfig/avd-aws-0178
+
 # This creates a VPC with CIDR block
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
@@ -44,7 +47,7 @@ resource "aws_subnet" "public_subnet" {
   count                   = length(var.public_subnet_cidrs)
   cidr_block              = element(var.public_subnet_cidrs, count.index)
   availability_zone       = element(var.availability_zones, count.index)
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
 
   tags = {
     Name = "public-${count.index}"
