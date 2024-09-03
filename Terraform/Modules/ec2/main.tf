@@ -15,6 +15,8 @@ resource "aws_instance" "ec2" {
   subnet_id       = var.subnet_id
   security_groups = var.security_groups
 
+  associate_public_ip_address = var.associate_public_ip_address
+
   metadata_options {
     http_tokens = "required"
   }

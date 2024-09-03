@@ -22,3 +22,9 @@ variable "ec2_name" {
   description = "The name to assign to the EC2 instance"
   type        = string
 }
+
+variable "associate_public_ip_address" {
+  description = "Associate a public IP address with the instance"
+  type        = bool
+  default     = false
+}
