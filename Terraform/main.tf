@@ -20,4 +20,6 @@ module "ec2" {
   security_groups = [aws_security_group.web_server_sg.id]
   ec2_name        = "frontend-application"
   associate_public_ip_address = true
+  key_pair_name   = "frontend-ec2-key"
+  file_name       = "frontend-ec2-key.pem"
 }

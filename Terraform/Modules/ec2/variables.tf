@@ -28,3 +28,13 @@ variable "associate_public_ip_address" {
   type        = bool
   default     = false
 }
+
+variable "key_pair_name" {
+  description = "The name of the key pair to use"
+  type        = string
+}
+
+variable "file_name" {
+  description = "The name of the file to write the private key to"
+  type        = string
+}
