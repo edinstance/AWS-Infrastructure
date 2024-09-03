@@ -11,3 +11,13 @@ module "vpc" {
   private_subnet_cidrs = ["10.0.2.0/24"]
   availability_zones   = ["eu-west-2a"]
 }
+
+module "ec2" {
+  source          = "./Modules/ec2/"
+  ami             = "ami-0c0493bbac867d427"
+  instance_type   = "t2.micro"
+  subnet_id       = module.vpc.public_subnet_ids[0]
+  security_groups = [aws_security_group.web_server_sg.id]
+  ec2_name        = "frontend-application"
+  associate_public_ip_address = true
+}
