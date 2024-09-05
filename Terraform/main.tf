@@ -12,7 +12,7 @@ module "vpc" {
   availability_zones   = ["eu-west-2a"]
 }
 
-module "ec2" {
+module "frontend_ec2" {
   source          = "./Modules/ec2/"
   ami             = "ami-0c0493bbac867d427"
   instance_type   = "t2.micro"
