@@ -27,6 +27,10 @@ resource "aws_instance" "ec2" {
 
   associate_public_ip_address = var.associate_public_ip_address
 
+  root_block_device {
+    encrypted = true
+  }
+
   metadata_options {
     http_tokens = "required"
   }
