@@ -11,3 +11,12 @@ Once [TFLint](https://github.com/terraform-linters/tflint) is installed move int
 ## Securtity 
 
 Once [Trivy](https://trivy.dev) is installed move into this directory and run this command ```trivy config .``.
+
+
+## Current Infrastructure 
+
+This is the current infrastructure that the terraform creates.
+
+To access the private ec2 you need to ssh into the public ec2 and then ssh into the private ec2. 
+
+![Infrastructure diagram](https://app.eraser.io/workspace/OYKeaatA9U4gBcEuzkc3?elements=kpDRAM6jQmtmGS0yyT0BhA)
