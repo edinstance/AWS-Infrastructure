@@ -19,4 +19,4 @@ This is the current infrastructure that the terraform creates.
 
 To access the private ec2 you need to ssh into the public ec2 and then ssh into the private ec2. 
 
-![Infrastructure diagram](https://app.eraser.io/workspace/OYKeaatA9U4gBcEuzkc3?elements=kpDRAM6jQmtmGS0yyT0BhA)
+![image](https://github.com/user-attachments/assets/e1318f31-8160-4d55-8774-ba214c204009)
