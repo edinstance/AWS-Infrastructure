@@ -23,6 +23,8 @@ resource "aws_instance" "ec2" {
   subnet_id       = var.subnet_id
   security_groups = var.security_groups
 
+  key_name = var.create_key_pair ? var.key_pair_name : null
+
   associate_public_ip_address = var.associate_public_ip_address
 
   metadata_options {
@@ -35,17 +37,20 @@ resource "aws_instance" "ec2" {
 }
 
 resource "tls_private_key" "rsa" {
+  count     = var.create_key_pair ? 1 : 0
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
 resource "aws_key_pair" "ec2_key" {
+  count      = var.create_key_pair ? 1 : 0
   key_name   = var.key_pair_name
-  public_key = tls_private_key.rsa.public_key_openssh
+  public_key = tls_private_key.rsa[0].public_key_openssh
 }
 
 resource "local_file" "ec2_key" {
-  content  = tls_private_key.rsa.private_key_pem
+  count    = var.create_key_pair ? 1 : 0
+  content  = tls_private_key.rsa[0].private_key_pem
   filename = var.file_name
 
 }

@@ -29,6 +29,12 @@ variable "associate_public_ip_address" {
   default     = false
 }
 
+variable "create_key_pair" {
+  description = "Boolean to determine if the key pair should be created"
+  type        = bool
+  default     = false
+}
+
 variable "key_pair_name" {
   description = "The name of the key pair to use"
   type        = string
