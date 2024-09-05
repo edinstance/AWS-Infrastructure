@@ -24,3 +24,16 @@ module "frontend_ec2" {
   key_pair_name   = "frontend-ec2-key"
   file_name       = "ssh-keys/frontend-ec2-key.pem"
 }
+
+module "backend_ec2" {
+  source          = "./Modules/ec2/"
+  ami             = "ami-0c0493bbac867d427"
+  instance_type   = "t2.micro"
+  subnet_id       = module.vpc.private_subnet_ids[0]
+  security_groups = [aws_security_group.backend_server_sg.id]
+  ec2_name        = "backend-application"
+  associate_public_ip_address = false
+  create_key_pair = true
+  key_pair_name   = "backend-ec2-key"
+  file_name       = "ssh-keys/backend-ec2-key.pem"
+}
