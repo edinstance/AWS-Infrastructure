@@ -10,7 +10,7 @@ Once [TFLint](https://github.com/terraform-linters/tflint) is installed move int
 
 ## Securtity 
 
-Once [Trivy](https://trivy.dev) is installed move into this directory and run this command ```trivy config .``.
+Once [Trivy](https://trivy.dev) is installed move into this directory and run this command ```trivy config .```.
 
 
 ## Current Infrastructure 
